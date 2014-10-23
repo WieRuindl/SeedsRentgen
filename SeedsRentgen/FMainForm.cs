@@ -152,20 +152,23 @@ namespace SeedsRentgen
                         return;
 
                     String directoryPath = dialog.SelectedPath + "\\" + this.Text;
-                    Directory.CreateDirectory(directoryPath);
-
+                   
                     if (Directory.Exists(directoryPath))
                     {
-                        if (MessageBox.Show("Подпапка с таким названием уже существует. Продолжать работу?", "", MessageBoxButtons.OKCancel) != System.Windows.Forms.DialogResult.OK)
+                        if (MessageBox.Show(SeedsRentgen.Properties.Resources.messageSaveWarningBody, 
+                            SeedsRentgen.Properties.Resources.messageSaveWarningHeader, 
+                            MessageBoxButtons.OKCancel) != System.Windows.Forms.DialogResult.OK)
                             return;
                     }
-                    
+
+                    Directory.CreateDirectory(directoryPath);
+
                     List<CSeed> seeds = CSeedsLinker.GetSeeds(_areasStorage.GetAllAreas());
 
                     (new CSaverTxt(directoryPath, this.Text)).Save(seeds);
                     (new CSaverBmp(directoryPath, this.Text)).Save(SCImageProcessing.NumberizePhoto(_rentgenPhoto.PhotoBrightness, seeds));
 
-                    MessageBox.Show("Сохранение успешно!");
+                    MessageBox.Show(SeedsRentgen.Properties.Resources.messageSaveSuccess);
 
                     CompleteWork();
                 }
@@ -200,7 +203,7 @@ namespace SeedsRentgen
 
                     if (Color.Black.R != color && Color.Gray.R != color && Color.White.R != color)
                     {
-                        //MessageBox.Show(Resources.messageClickError);
+                        MessageBox.Show(Resources.messageClickError);
                         return;
                     }
 

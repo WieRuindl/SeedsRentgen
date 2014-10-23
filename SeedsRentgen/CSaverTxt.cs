@@ -23,7 +23,7 @@ namespace SeedsRentgen
 
             if (file.Exists)
                 file.Attributes = FileAttributes.Normal;
-
+             
             FileStream fileStream = new FileStream(_fileName, FileMode.Create, FileAccess.Write);
             
             using (StreamWriter writer = new StreamWriter(fileStream))

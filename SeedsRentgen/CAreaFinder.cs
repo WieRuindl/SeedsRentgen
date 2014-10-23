@@ -78,9 +78,9 @@ namespace SeedsRentgen
 
         private void ShowWarningMessage()
         {
-            if (DialogResult.No == MessageBox.Show("", "",
-                //SeedsRentgen.Properties.Resources.messageAreaWarningBody,
-                //SeedsRentgen.Properties.Resources.messageAreaWarningHeader,
+            if (DialogResult.No == MessageBox.Show(
+                SeedsRentgen.Properties.Resources.messageAreaWarningBody,
+                SeedsRentgen.Properties.Resources.messageAreaWarningHeader,
                     System.Windows.Forms.MessageBoxButtons.YesNo)
                     )
             {

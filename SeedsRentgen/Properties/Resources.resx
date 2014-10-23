@@ -150,14 +150,23 @@
     <value>Это окно является дополнительным к основному и не может быть закрыто.</value>
     <comment>Сообщение при закрыти доп. формы</comment>
   </data>
-  <data name="messageWarningBody" xml:space="preserve">
+  <data name="messageAreaWarningBody" xml:space="preserve">
     <value>Выбранная вами область велика, возможно, вы случайно выбрали неверную область. Продолжить обработку? </value>
     <comment>Проверка на случай случайного выделения</comment>
   </data>
-  <data name="messageWarningHeader" xml:space="preserve">
+  <data name="messageAreaWarningHeader" xml:space="preserve">
     <value />
   </data>
   <data name="messageSaveError" xml:space="preserve">
     <value>Сохранение невозможно. Количество серых областей должно быть больше, чем белых, и не равно 0.</value>
+  </data>
+  <data name="messageSaveSuccess" xml:space="preserve">
+    <value>Сохранение успешно!</value>
+  </data>
+  <data name="messageSaveWarningBody" xml:space="preserve">
+    <value>Подпапка с таким названием уже существует. Продолжать работу?</value>
+  </data>
+  <data name="messageSaveWarningHeader" xml:space="preserve">
+    <value />
   </data>
 </root>

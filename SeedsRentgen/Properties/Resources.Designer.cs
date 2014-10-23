@@ -138,6 +138,24 @@ namespace SeedsRentgen.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Выбранная вами область велика, возможно, вы случайно выбрали неверную область. Продолжить обработку? .
+        /// </summary>
+        internal static string messageAreaWarningBody {
+            get {
+                return ResourceManager.GetString("messageAreaWarningBody", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на .
+        /// </summary>
+        internal static string messageAreaWarningHeader {
+            get {
+                return ResourceManager.GetString("messageAreaWarningHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Произошла ошибка! Выбранный пиксель имеет отличный от черного, белого или серого цвет. Такого быть не должно. Если вы столкнулись с этой ошибкой, сообщите о ней разработчику..
         /// </summary>
         internal static string messageClickError {
@@ -165,20 +183,29 @@ namespace SeedsRentgen.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Выбранная вами область велика, возможно, вы случайно выбрали неверную область. Продолжить обработку? .
+        ///   Ищет локализованную строку, похожую на Сохранение успешно!.
         /// </summary>
-        internal static string messageWarningBody {
+        internal static string messageSaveSuccess {
             get {
-                return ResourceManager.GetString("messageWarningBody", resourceCulture);
+                return ResourceManager.GetString("messageSaveSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Подпапка с таким названием уже существует. Продолжать работу?.
+        /// </summary>
+        internal static string messageSaveWarningBody {
+            get {
+                return ResourceManager.GetString("messageSaveWarningBody", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Ищет локализованную строку, похожую на .
         /// </summary>
-        internal static string messageWarningHeader {
+        internal static string messageSaveWarningHeader {
             get {
-                return ResourceManager.GetString("messageWarningHeader", resourceCulture);
+                return ResourceManager.GetString("messageSaveWarningHeader", resourceCulture);
             }
         }
     }
