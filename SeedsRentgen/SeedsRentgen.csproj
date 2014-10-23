@@ -72,6 +72,12 @@
     <Compile Include="FHelpForm.Designer.cs">
       <DependentUpon>FHelpForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="FMainForm_Brightness.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FMainForm_CutImage.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ISave.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>

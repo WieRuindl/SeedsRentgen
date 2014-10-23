@@ -14,7 +14,6 @@ namespace SeedsRentgen
         private CAreaFinder _areaFinder;
         private FHelpForm _helpForm;
 
-
         public FMainForm()
         {
             InitializeComponent();
@@ -29,6 +28,10 @@ namespace SeedsRentgen
             this.MaximumSize = new Size(width, height);
             this.MinimumSize = new Size(width, height);
             this.Size = new Size(width, height);
+
+            this.label_blackTreshold.Text = SeedsRentgen.Properties.Resources.labelBlackTreshold;
+            this.label_whiteTreshold.Text = SeedsRentgen.Properties.Resources.labelWhiteTreshold;
+            this.label_brightness.Text = SeedsRentgen.Properties.Resources.labelBrightness;
         }
 
         private void button_OpenImage_Click(object sender, EventArgs e)
@@ -98,25 +101,7 @@ namespace SeedsRentgen
 
         #endregion
 
-        #region ИЗМЕНЕНИЕ ЯРКОСТИ
-        /// <summary>
-        /// Метод вызывается при изменении значения ползунка-"яркости" и изменяет изображения в обеих формах
-        /// </summary>
-        private void hScrollBar_Brightness_ValueChanged(object sender, EventArgs e)
-        {
-            ChangeBrightness();
-            _rentgenPhoto.ChangeTreshold(hScrollBar_BlackTreshold.Value, hScrollBar_WhiteTreshold.Value); 
-
-            UpdateHelpFormImage();
-            UpdateMainFormImage();
-        }
-        private void ChangeBrightness()
-        {
-            textBox_Brightness.Text = String.Format("{0:0.00}", (1 + (double)hScrollBar_Brightness.Value / 100).ToString()); ;
-            _rentgenPhoto.ChangeBrightness(hScrollBar_Brightness.Value);
-        }
-        #endregion
-
+       
 
 
         private void button_Undo_Click(object sender, EventArgs e)
@@ -220,59 +205,7 @@ namespace SeedsRentgen
             }
         }
 
-        #region ОБРЕЗАНИЕ ИЗОБРАЖЕНИЯ
-        Point _startPoint;
-        Rectangle _areaToCut;
-
-        private void StartCut(MouseEventArgs e)
-        {
-            if (e.X <= pictureBox.Image.Width && e.Y <= pictureBox.Image.Height)
-            {
-                _startPoint = new Point(e.X, e.Y);
-            }
-        }
-
-        private void pictureBox_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (e.Button == System.Windows.Forms.MouseButtons.Right)
-            {
-                int x = Math.Max(Math.Min(_startPoint.X, e.X), 0);
-                int y = Math.Max(Math.Min(_startPoint.Y, e.Y), 0);
-                int width = Math.Min(Math.Max(_startPoint.X, e.X), pictureBox.Image.Width - 1) - x;
-                int height = Math.Min(Math.Max(_startPoint.Y, e.Y), pictureBox.Image.Height - 1) - y;
-                _areaToCut = new Rectangle(x, y, width, height);
-
-                if (_areaToCut.Width > SeedsRentgen.Properties.Settings.Default.frameSensitivity &&
-                    _areaToCut.Height > SeedsRentgen.Properties.Settings.Default.frameSensitivity)
-                {
-                    button_CutImage.Enabled = true;
-                }
-                else
-                {
-                    button_CutImage.Enabled = false;
-                }
-
-                UpdateMainFormImage();
-            }
-        }
-
-        private void button_CutImage_Click(object sender, EventArgs e)
-        {
-            //обрезание изображения
-            _rentgenPhoto.CutImage(_areaToCut);
-
-            _startPoint = new Point();
-            _areaToCut = new Rectangle();
-            button_CutImage.Enabled = false;
-
-            _areasStorage = new CAreasStorage();
-            _areaFinder = new CAreaFinder(pictureBox.Image.Size);
-
-            UpdateMainFormImage();
-            UpdateHelpFormImage();
-        }
-        #endregion
-
+        
         //выводит в pictureBox _rentgen.PhotoBW и рисует рамку
         private void UpdateMainFormImage()
         {
@@ -318,6 +251,22 @@ namespace SeedsRentgen
 
             hScrollBar_BlackTreshold.Value = SeedsRentgen.Properties.Settings.Default.blackTreshold;
             hScrollBar_WhiteTreshold.Value = SeedsRentgen.Properties.Settings.Default.whiteTreshold;
+        }
+
+        private void файлToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("!");
+        }
+
+        private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("!!");
+
+        }
+
+        private void связьСАвторомToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("!!!");
         }
     }
 }

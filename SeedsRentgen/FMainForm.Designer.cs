@@ -30,9 +30,9 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
+            this.label_whiteTreshold = new System.Windows.Forms.Label();
             this.button_CutImage = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
+            this.label_blackTreshold = new System.Windows.Forms.Label();
             this.hScrollBar_WhiteTreshold = new System.Windows.Forms.HScrollBar();
             this.textBox_BlackTreshold = new System.Windows.Forms.TextBox();
             this.hScrollBar_BlackTreshold = new System.Windows.Forms.HScrollBar();
@@ -40,16 +40,21 @@
             this.button_OpenImage = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.textBox_Brightness = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.label_brightness = new System.Windows.Forms.Label();
             this.button_Save = new System.Windows.Forms.Button();
             this.button_ClearAll = new System.Windows.Forms.Button();
             this.button_Undo = new System.Windows.Forms.Button();
             this.hScrollBar_Brightness = new System.Windows.Forms.HScrollBar();
             this.pictureBox = new System.Windows.Forms.PictureBox();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.связьСАвторомToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -58,16 +63,16 @@
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.button_OpenImage);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Location = new System.Drawing.Point(0, 24);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(388, 72);
             this.panel1.TabIndex = 0;
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.label3);
+            this.panel3.Controls.Add(this.label_whiteTreshold);
             this.panel3.Controls.Add(this.button_CutImage);
-            this.panel3.Controls.Add(this.label2);
+            this.panel3.Controls.Add(this.label_blackTreshold);
             this.panel3.Controls.Add(this.hScrollBar_WhiteTreshold);
             this.panel3.Controls.Add(this.textBox_BlackTreshold);
             this.panel3.Controls.Add(this.hScrollBar_BlackTreshold);
@@ -79,14 +84,14 @@
             this.panel3.Size = new System.Drawing.Size(320, 72);
             this.panel3.TabIndex = 3;
             // 
-            // label3
+            // label_whiteTreshold
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(76, 43);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(72, 13);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "Серый порог";
+            this.label_whiteTreshold.AutoSize = true;
+            this.label_whiteTreshold.Location = new System.Drawing.Point(76, 43);
+            this.label_whiteTreshold.Name = "label_whiteTreshold";
+            this.label_whiteTreshold.Size = new System.Drawing.Size(72, 13);
+            this.label_whiteTreshold.TabIndex = 11;
+            this.label_whiteTreshold.Text = "Серый порог";
             // 
             // button_CutImage
             // 
@@ -99,14 +104,14 @@
             this.button_CutImage.UseVisualStyleBackColor = true;
             this.button_CutImage.Click += new System.EventHandler(this.button_CutImage_Click);
             // 
-            // label2
+            // label_blackTreshold
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(76, 15);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 13);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "Белый порог";
+            this.label_blackTreshold.AutoSize = true;
+            this.label_blackTreshold.Location = new System.Drawing.Point(76, 15);
+            this.label_blackTreshold.Name = "label_blackTreshold";
+            this.label_blackTreshold.Size = new System.Drawing.Size(72, 13);
+            this.label_blackTreshold.TabIndex = 10;
+            this.label_blackTreshold.Text = "Белый порог";
             // 
             // hScrollBar_WhiteTreshold
             // 
@@ -166,7 +171,7 @@
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panel2.Controls.Add(this.textBox_Brightness);
-            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.label_brightness);
             this.panel2.Controls.Add(this.button_Save);
             this.panel2.Controls.Add(this.button_ClearAll);
             this.panel2.Controls.Add(this.button_Undo);
@@ -188,14 +193,14 @@
             this.textBox_Brightness.TabIndex = 12;
             this.textBox_Brightness.Text = "0,40";
             // 
-            // label1
+            // label_brightness
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(133, 15);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 13);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Яркость";
+            this.label_brightness.AutoSize = true;
+            this.label_brightness.Location = new System.Drawing.Point(133, 15);
+            this.label_brightness.Name = "label_brightness";
+            this.label_brightness.Size = new System.Drawing.Size(50, 13);
+            this.label_brightness.TabIndex = 9;
+            this.label_brightness.Text = "Яркость";
             // 
             // button_Save
             // 
@@ -244,13 +249,48 @@
             this.pictureBox.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.pictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox.Enabled = false;
-            this.pictureBox.Location = new System.Drawing.Point(0, 72);
+            this.pictureBox.Location = new System.Drawing.Point(0, 96);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(388, 481);
+            this.pictureBox.Size = new System.Drawing.Size(388, 457);
             this.pictureBox.TabIndex = 2;
             this.pictureBox.TabStop = false;
             this.pictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseDown);
             this.pictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseMove);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.файлToolStripMenuItem,
+            this.оПрограммеToolStripMenuItem,
+            this.связьСАвторомToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            this.menuStrip1.Size = new System.Drawing.Size(388, 24);
+            this.menuStrip1.TabIndex = 3;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // файлToolStripMenuItem
+            // 
+            this.файлToolStripMenuItem.Name = "файлToolStripMenuItem";
+            this.файлToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+            this.файлToolStripMenuItem.Text = "Справка";
+            this.файлToolStripMenuItem.Click += new System.EventHandler(this.файлToolStripMenuItem_Click);
+            // 
+            // оПрограммеToolStripMenuItem
+            // 
+            this.оПрограммеToolStripMenuItem.Name = "оПрограммеToolStripMenuItem";
+            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
+            this.оПрограммеToolStripMenuItem.Text = "О программе";
+            this.оПрограммеToolStripMenuItem.Click += new System.EventHandler(this.оПрограммеToolStripMenuItem_Click);
+            // 
+            // связьСАвторомToolStripMenuItem
+            // 
+            this.связьСАвторомToolStripMenuItem.Name = "связьСАвторомToolStripMenuItem";
+            this.связьСАвторомToolStripMenuItem.Size = new System.Drawing.Size(109, 20);
+            this.связьСАвторомToolStripMenuItem.Text = "Связь с автором";
+            this.связьСАвторомToolStripMenuItem.Click += new System.EventHandler(this.связьСАвторомToolStripMenuItem_Click);
             // 
             // FMainForm
             // 
@@ -261,8 +301,12 @@
             this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(431, 664);
+            this.MinimizeBox = false;
             this.Name = "FMainForm";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.panel1.ResumeLayout(false);
@@ -271,7 +315,10 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -287,14 +334,18 @@
         private System.Windows.Forms.Button button_Undo;
         private System.Windows.Forms.HScrollBar hScrollBar_Brightness;
         private System.Windows.Forms.PictureBox pictureBox;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label_whiteTreshold;
+        private System.Windows.Forms.Label label_blackTreshold;
         private System.Windows.Forms.TextBox textBox_BlackTreshold;
         private System.Windows.Forms.TextBox textBox_WhiteTreshold;
         private System.Windows.Forms.TextBox textBox_Brightness;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label_brightness;
         private System.Windows.Forms.Button button_Save;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem файлToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem оПрограммеToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem связьСАвторомToolStripMenuItem;
     }
 }
 
