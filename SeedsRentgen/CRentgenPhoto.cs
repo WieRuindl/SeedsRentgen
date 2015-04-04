@@ -5,6 +5,7 @@ namespace SeedsRentgen
     class CRentgenPhoto
     {
         private Bitmap _photoOriginal;
+        private Bitmap _photoBase;
         private Bitmap _photoBrightness;
         private Bitmap _photoBW;
 
@@ -23,6 +24,13 @@ namespace SeedsRentgen
             }
         }
 
+        public void Refresh()
+        {
+            _photoBase = new Bitmap(_photoOriginal);
+            _photoBrightness = SCImageProcessing.ChangeBrightness(_photoBase, SeedsRentgen.Properties.Settings.Default.brightness);
+            _photoBW = SCImageProcessing.ChangeTreshold(_photoBrightness, SeedsRentgen.Properties.Settings.Default.blackTreshold, SeedsRentgen.Properties.Settings.Default.whiteTreshold);
+        }
+
         public CRentgenPhoto(Bitmap image, Size targetSize)
         {
             //подготовительные функции
@@ -31,8 +39,7 @@ namespace SeedsRentgen
                 SCImageProcessing.ChangeSize(image, targetSize)
                 ));
 
-            _photoBrightness = SCImageProcessing.ChangeBrightness(_photoOriginal, SeedsRentgen.Properties.Settings.Default.brightness);
-            _photoBW = SCImageProcessing.ChangeTreshold(_photoBrightness, SeedsRentgen.Properties.Settings.Default.blackTreshold, SeedsRentgen.Properties.Settings.Default.whiteTreshold);
+            Refresh();
         }
 
         public void ChangeTreshold(int black, int white)
@@ -42,12 +49,12 @@ namespace SeedsRentgen
 
         public void ChangeBrightness(double coefficient)
         {
-            _photoBrightness = SCImageProcessing.ChangeBrightness(_photoOriginal, coefficient);
+            _photoBrightness = SCImageProcessing.ChangeBrightness(_photoBase, coefficient);
         }
 
         public void CutImage(Rectangle areaToCut)
         {
-            _photoOriginal = SCImageProcessing.CutImage(_photoOriginal, areaToCut);
+            _photoBase = SCImageProcessing.CutImage(_photoBase, areaToCut);
             _photoBrightness = SCImageProcessing.CutImage(_photoBrightness, areaToCut);
             _photoBW = SCImageProcessing.CutImage(_photoBW, areaToCut);
         }

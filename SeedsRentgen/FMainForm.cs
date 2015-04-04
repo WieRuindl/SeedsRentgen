@@ -1,6 +1,7 @@
 ﻿using SeedsRentgen.Properties;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
@@ -65,6 +66,7 @@ namespace SeedsRentgen
 
                 CnagneEnable(true);
 
+                if (null != _helpForm) _helpForm.Dispose();
                 _helpForm = new FHelpForm(_rentgenPhoto.PhotoBrightness);
                 _helpForm.Show();
             }
@@ -101,9 +103,6 @@ namespace SeedsRentgen
 
         #endregion
 
-       
-
-
         private void button_Undo_Click(object sender, EventArgs e)
         {
             //отмена последнего действия
@@ -120,8 +119,12 @@ namespace SeedsRentgen
         private void button_ClearAll_Click(object sender, EventArgs e)
         {
             _areasStorage = new CAreasStorage();
+            _rentgenPhoto.Refresh();
             _areaFinder = new CAreaFinder(pictureBox.Image.Size);
+            if (!hScrollBar_Brightness.Enabled) hScrollBar_Brightness.Enabled = true;
+            SetHScrollBarsInStartPosition();
 
+            UpdateMainFormImage();
             UpdateHelpFormImage();
         }
 
@@ -148,7 +151,7 @@ namespace SeedsRentgen
 
                     Directory.CreateDirectory(directoryPath);
 
-                    List<CSeed> seeds = CSeedsLinker.GetSeeds(_areasStorage.GetAllAreas());
+                    List<CSeed> seeds = SCSeedsLinker.GetSeeds(_areasStorage.GetAllAreas());
 
                     (new CSaverTxt(directoryPath, this.Text)).Save(seeds);
                     (new CSaverBmp(directoryPath, this.Text)).Save(SCImageProcessing.NumberizePhoto(_rentgenPhoto.PhotoBrightness, seeds));
@@ -216,6 +219,7 @@ namespace SeedsRentgen
             {
                 Graphics canvas = Graphics.FromImage(image);
                 canvas.DrawRectangle(new Pen(Color.Red), _areaToCut);
+                
             }
 
             pictureBox.Image = image;
@@ -223,14 +227,13 @@ namespace SeedsRentgen
 
         private void UpdateHelpFormImage()
         {
-            Bitmap image = SCImageProcessing.ColorizePhoto(_rentgenPhoto.PhotoBrightness, _areasStorage.GetAllAreas());
-            _helpForm.Image = image;
+            _helpForm.Image = SCImageProcessing.ColorizePhoto(_rentgenPhoto.PhotoBrightness, _areasStorage.GetAllAreas());
         }
 
         private void CnagneEnable(bool state)
         {
-            panel2.Enabled = state;
-            panel3.Enabled = state;
+            panel_Up.Enabled = state;
+            panel_Down.Enabled = state;      
             pictureBox.Enabled = state;
         }
 
@@ -253,20 +256,9 @@ namespace SeedsRentgen
             hScrollBar_WhiteTreshold.Value = SeedsRentgen.Properties.Settings.Default.whiteTreshold;
         }
 
-        private void файлToolStripMenuItem_Click(object sender, EventArgs e)
+        private void MenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("!");
-        }
-
-        private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("!!");
-
-        }
-
-        private void связьСАвторомToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("!!!");
+            Help.ShowHelp(this, "helpfile.chm");
         }
     }
 }

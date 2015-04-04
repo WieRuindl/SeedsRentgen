@@ -11,7 +11,6 @@ namespace SeedsRentgen
     public class CSeed
     {
         public int Number { get; private set; }
-        
         public double BodyArea { get; private set; }
         public double HuskArea { get; private set; }
         public double Fulfilled { get; private set; }
@@ -21,10 +20,10 @@ namespace SeedsRentgen
         public CSeed(int number, CArea husk, CArea body)
         {
             Number = number;
-            int scopeCoefficint = 90;
+            int scopeCoefficint = 900;
 
-            HuskArea = (husk != null) ? husk.GetPoints().Count * scopeCoefficint : 0;
-            BodyArea = (body != null) ? body.GetPoints().Count * scopeCoefficint : 0;
+            HuskArea = (husk != null) ? (double)husk.GetPoints().Count / scopeCoefficint : 0;
+            BodyArea = (body != null) ? (double)body.GetPoints().Count / scopeCoefficint : 0;
 
             Fulfilled = BodyArea / HuskArea;
             Frame = husk.CalculateFrame();

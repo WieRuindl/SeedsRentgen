@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FMainForm));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel_Up = new System.Windows.Forms.Panel();
             this.label_whiteTreshold = new System.Windows.Forms.Label();
             this.button_CutImage = new System.Windows.Forms.Button();
             this.label_blackTreshold = new System.Windows.Forms.Label();
@@ -38,7 +39,7 @@
             this.hScrollBar_BlackTreshold = new System.Windows.Forms.HScrollBar();
             this.textBox_WhiteTreshold = new System.Windows.Forms.TextBox();
             this.button_OpenImage = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel_Down = new System.Windows.Forms.Panel();
             this.textBox_Brightness = new System.Windows.Forms.TextBox();
             this.label_brightness = new System.Windows.Forms.Label();
             this.button_Save = new System.Windows.Forms.Button();
@@ -46,21 +47,20 @@
             this.button_Undo = new System.Windows.Forms.Button();
             this.hScrollBar_Brightness = new System.Windows.Forms.HScrollBar();
             this.pictureBox = new System.Windows.Forms.PictureBox();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.связьСАвторомToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.настройкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.panel_Up.SuspendLayout();
+            this.panel_Down.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
-            this.menuStrip1.SuspendLayout();
+            this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel1.Controls.Add(this.panel3);
+            this.panel1.Controls.Add(this.panel_Up);
             this.panel1.Controls.Add(this.button_OpenImage);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 24);
@@ -68,21 +68,21 @@
             this.panel1.Size = new System.Drawing.Size(388, 72);
             this.panel1.TabIndex = 0;
             // 
-            // panel3
+            // panel_Up
             // 
-            this.panel3.Controls.Add(this.label_whiteTreshold);
-            this.panel3.Controls.Add(this.button_CutImage);
-            this.panel3.Controls.Add(this.label_blackTreshold);
-            this.panel3.Controls.Add(this.hScrollBar_WhiteTreshold);
-            this.panel3.Controls.Add(this.textBox_BlackTreshold);
-            this.panel3.Controls.Add(this.hScrollBar_BlackTreshold);
-            this.panel3.Controls.Add(this.textBox_WhiteTreshold);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel3.Enabled = false;
-            this.panel3.Location = new System.Drawing.Point(68, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(320, 72);
-            this.panel3.TabIndex = 3;
+            this.panel_Up.Controls.Add(this.label_whiteTreshold);
+            this.panel_Up.Controls.Add(this.button_CutImage);
+            this.panel_Up.Controls.Add(this.label_blackTreshold);
+            this.panel_Up.Controls.Add(this.hScrollBar_WhiteTreshold);
+            this.panel_Up.Controls.Add(this.textBox_BlackTreshold);
+            this.panel_Up.Controls.Add(this.hScrollBar_BlackTreshold);
+            this.panel_Up.Controls.Add(this.textBox_WhiteTreshold);
+            this.panel_Up.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel_Up.Enabled = false;
+            this.panel_Up.Location = new System.Drawing.Point(68, 0);
+            this.panel_Up.Name = "panel_Up";
+            this.panel_Up.Size = new System.Drawing.Size(320, 72);
+            this.panel_Up.TabIndex = 3;
             // 
             // label_whiteTreshold
             // 
@@ -167,21 +167,21 @@
             this.button_OpenImage.UseVisualStyleBackColor = true;
             this.button_OpenImage.Click += new System.EventHandler(this.button_OpenImage_Click);
             // 
-            // panel2
+            // panel_Down
             // 
-            this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel2.Controls.Add(this.textBox_Brightness);
-            this.panel2.Controls.Add(this.label_brightness);
-            this.panel2.Controls.Add(this.button_Save);
-            this.panel2.Controls.Add(this.button_ClearAll);
-            this.panel2.Controls.Add(this.button_Undo);
-            this.panel2.Controls.Add(this.hScrollBar_Brightness);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Enabled = false;
-            this.panel2.Location = new System.Drawing.Point(0, 553);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(388, 72);
-            this.panel2.TabIndex = 1;
+            this.panel_Down.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel_Down.Controls.Add(this.textBox_Brightness);
+            this.panel_Down.Controls.Add(this.label_brightness);
+            this.panel_Down.Controls.Add(this.button_Save);
+            this.panel_Down.Controls.Add(this.button_ClearAll);
+            this.panel_Down.Controls.Add(this.button_Undo);
+            this.panel_Down.Controls.Add(this.hScrollBar_Brightness);
+            this.panel_Down.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel_Down.Enabled = false;
+            this.panel_Down.Location = new System.Drawing.Point(0, 553);
+            this.panel_Down.Name = "panel_Down";
+            this.panel_Down.Size = new System.Drawing.Size(388, 72);
+            this.panel_Down.TabIndex = 1;
             // 
             // textBox_Brightness
             // 
@@ -257,40 +257,31 @@
             this.pictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseDown);
             this.pictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseMove);
             // 
-            // menuStrip1
+            // menuStrip
             // 
-            this.menuStrip1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuStrip.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.файлToolStripMenuItem,
-            this.оПрограммеToolStripMenuItem,
-            this.связьСАвторомToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.menuStrip1.Size = new System.Drawing.Size(388, 24);
-            this.menuStrip1.TabIndex = 3;
-            this.menuStrip1.Text = "menuStrip1";
+            this.настройкиToolStripMenuItem});
+            this.menuStrip.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip.Name = "menuStrip";
+            this.menuStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            this.menuStrip.Size = new System.Drawing.Size(388, 24);
+            this.menuStrip.TabIndex = 3;
+            this.menuStrip.Text = "menuStrip";
             // 
             // файлToolStripMenuItem
             // 
             this.файлToolStripMenuItem.Name = "файлToolStripMenuItem";
-            this.файлToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
-            this.файлToolStripMenuItem.Text = "Справка";
-            this.файлToolStripMenuItem.Click += new System.EventHandler(this.файлToolStripMenuItem_Click);
+            this.файлToolStripMenuItem.Size = new System.Drawing.Size(148, 20);
+            this.файлToolStripMenuItem.Text = "Справка по программе";
+            this.файлToolStripMenuItem.Click += new System.EventHandler(this.MenuItem_Click);
             // 
-            // оПрограммеToolStripMenuItem
+            // настройкиToolStripMenuItem
             // 
-            this.оПрограммеToolStripMenuItem.Name = "оПрограммеToolStripMenuItem";
-            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
-            this.оПрограммеToolStripMenuItem.Text = "О программе";
-            this.оПрограммеToolStripMenuItem.Click += new System.EventHandler(this.оПрограммеToolStripMenuItem_Click);
-            // 
-            // связьСАвторомToolStripMenuItem
-            // 
-            this.связьСАвторомToolStripMenuItem.Name = "связьСАвторомToolStripMenuItem";
-            this.связьСАвторомToolStripMenuItem.Size = new System.Drawing.Size(109, 20);
-            this.связьСАвторомToolStripMenuItem.Text = "Связь с автором";
-            this.связьСАвторомToolStripMenuItem.Click += new System.EventHandler(this.связьСАвторомToolStripMenuItem_Click);
+            this.настройкиToolStripMenuItem.Name = "настройкиToolStripMenuItem";
+            this.настройкиToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
+            this.настройкиToolStripMenuItem.Text = "Настройки";
             // 
             // FMainForm
             // 
@@ -299,24 +290,25 @@
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(388, 625);
             this.Controls.Add(this.pictureBox);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel_Down);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.menuStrip);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.MainMenuStrip = this.menuStrip1;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuStrip;
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(431, 664);
             this.MinimizeBox = false;
             this.Name = "FMainForm";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.panel1.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.panel_Up.ResumeLayout(false);
+            this.panel_Up.PerformLayout();
+            this.panel_Down.ResumeLayout(false);
+            this.panel_Down.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.menuStrip.ResumeLayout(false);
+            this.menuStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -329,7 +321,7 @@
         private System.Windows.Forms.HScrollBar hScrollBar_WhiteTreshold;
         private System.Windows.Forms.Button button_CutImage;
         private System.Windows.Forms.Button button_OpenImage;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel_Down;
         private System.Windows.Forms.Button button_ClearAll;
         private System.Windows.Forms.Button button_Undo;
         private System.Windows.Forms.HScrollBar hScrollBar_Brightness;
@@ -341,11 +333,10 @@
         private System.Windows.Forms.TextBox textBox_Brightness;
         private System.Windows.Forms.Label label_brightness;
         private System.Windows.Forms.Button button_Save;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.Panel panel_Up;
+        private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem файлToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem оПрограммеToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem связьСАвторомToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem настройкиToolStripMenuItem;
     }
 }
 

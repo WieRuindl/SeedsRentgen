@@ -4,7 +4,7 @@ using System.Drawing;
 
 namespace SeedsRentgen
 {
-    static class CSeedsLinker
+    static class SCSeedsLinker
     {
         static public List<CSeed> GetSeeds(List<CArea> storage)
         {

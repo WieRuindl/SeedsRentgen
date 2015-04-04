@@ -5,7 +5,6 @@ namespace SeedsRentgen
 {
     partial class FMainForm : Form
     {
-        #region ИЗМЕНЕНИЕ ЯРКОСТИ
         /// <summary>
         /// Метод вызывается при изменении значения ползунка-"яркости" и изменяет изображения в обеих формах
         /// </summary>
@@ -22,7 +21,5 @@ namespace SeedsRentgen
             textBox_Brightness.Text = String.Format("{0:0.00}", (1 + (double)hScrollBar_Brightness.Value / 100).ToString()); ;
             _rentgenPhoto.ChangeBrightness(hScrollBar_Brightness.Value);
         }
-        #endregion
-
     }
 }
