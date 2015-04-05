@@ -128,61 +128,7 @@ namespace SeedsRentgen
 
             return resultImage;
         }
-        /*
-        static public Bitmap ChangeBrightness(Bitmap sourceImage, double coefficient)
-        {
-            Bitmap resultImage = new Bitmap(sourceImage);
 
-            Rectangle area = new Rectangle(0, 0, resultImage.Width, resultImage.Height);
-            BitmapData bmpData = resultImage.LockBits(area, ImageLockMode.ReadWrite, PixelFormat.Format24bppRgb);
-
-            int nBytes = sourceImage.Width * sourceImage.Height * 3;             
-            byte[] rgbValues = new byte[nBytes];
-
-            Marshal.Copy(bmpData.Scan0, rgbValues, 0, nBytes);
-
-            double w = (double)sourceImage.Width / 2;
-            double h = (double)sourceImage.Height / 2;
-            double max = Math.Sqrt(Math.Pow(w, 2) + Math.Pow(h, 2));
-
-            double[,] coefficientMatrix = new double[sourceImage.Width, sourceImage.Height];
-            for (int y = 0; y < sourceImage.Height; y++)
-            {
-                for (int x = 0; x < sourceImage.Width; x++)
-                {
-                    double distance = Math.Sqrt(Math.Pow(w - x, 2) + Math.Pow(h - y, 2));
-                    double mult = distance * (coefficient - 1) / max + 1;
-                    coefficientMatrix[x, y] = mult;
-                }
-            }
-
-            for (int y = 0, i = 0; y < sourceImage.Height; y++)
-            {
-                for (int x = 0; x < sourceImage.Width; x++, i+=3)
-                {
-                    double tempValue = rgbValues[i] * coefficientMatrix[x, y];
-
-                    byte resultValue;
-                    if (tempValue < 0) resultValue = 0;
-                    else if (tempValue > 255) resultValue = 255;
-                    else resultValue = Convert.ToByte(Math.Round(tempValue));
-
-                    rgbValues[i] = rgbValues[i + 1] = 
-                        rgbValues[i + 2] = resultValue;
-                }
-                
-                //distance  = 0...max
-                //multValue = 1...coefficient
-                //distance*(coefficient-1)/max+1
-            }
-            
-            Marshal.Copy(rgbValues, 0, bmpData.Scan0, nBytes);
-
-            resultImage.UnlockBits(bmpData);
-
-            return resultImage;
-        }
-        */
         static public Bitmap ChangeTreshold(Bitmap sourceImage, int black, int white)
         {
             Bitmap resultImage = new Bitmap(sourceImage);

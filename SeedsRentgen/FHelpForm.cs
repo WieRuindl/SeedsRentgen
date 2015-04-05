@@ -18,6 +18,7 @@ namespace SeedsRentgen
             {
                 if (null != pictureBox.Image) pictureBox.Image.Dispose();
                 pictureBox.Image = value;
+                Text = "Масштаб = " + SeedsRentgen.Properties.Settings.Default.scopeCoefficient.ToString();
             }
         }
 
@@ -26,6 +27,7 @@ namespace SeedsRentgen
             InitializeComponent();
 
             Image = image;
+            Text = "Масштаб = " + SeedsRentgen.Properties.Settings.Default.scopeCoefficient.ToString();
         }
 
         protected override void OnClosing(CancelEventArgs e)

@@ -260,5 +260,11 @@ namespace SeedsRentgen
         {
             Help.ShowHelp(this, "helpfile.chm");
         }
+
+        private void настройкиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            (new FProperties()).ShowDialog();
+            if (pictureBox.Image != null) UpdateHelpFormImage();
+        }
     }
 }

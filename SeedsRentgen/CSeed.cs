@@ -20,7 +20,7 @@ namespace SeedsRentgen
         public CSeed(int number, CArea husk, CArea body)
         {
             Number = number;
-            int scopeCoefficint = 900;
+            int scopeCoefficint = (int)Math.Pow(SeedsRentgen.Properties.Settings.Default.scopeCoefficient * 10, 2);
 
             HuskArea = (husk != null) ? (double)husk.GetPoints().Count / scopeCoefficint : 0;
             BodyArea = (body != null) ? (double)body.GetPoints().Count / scopeCoefficint : 0;
